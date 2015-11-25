@@ -1,5 +1,205 @@
 @color : #000;
-.test{
-  background-color: @color !important;
+@mainColorBkg: #10468d;
+@mainColorFg: #FFF;
+@footerColotBkg: #FFF;
+@footerColotFg: #666;
+@accentColor: #ff8403;
 
+
+.deadCenter(){
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0px !important;
+}
+.centerLeftRight(){
+  margin-left: auto;
+  margin-right: auto;
+}
+.verticalAlign() {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.horizontalAlign() {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.deadCenter(){
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+.border-radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+.box-shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
+  -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}
+.gradient (@origin: left, @start: #FFFFFF, @stop: #000000) {
+  background-color: @start;
+  background-image: -webkit-linear-gradient(@origin, @start, @stop);
+  background-image: -moz-linear-gradient(@origin, @start, @stop);
+  background-image: -o-linear-gradient(@origin, @start, @stop);
+  background-image: -ms-linear-gradient(@origin, @start, @stop);
+  background-image: linear-gradient(@origin, @start, @stop);
+}
+.trans (@style: opacity, @duration: 0.7s, @mode:ease) {
+  transition: @style @duration @mode;
+  -webkit-transition: @style @duration @mode;
+  -moz-transition: @style @duration @mode;
+  -ms-transition: @style @duration @mode;
+  -o-transition: @style @duration @mode;
+}
+
+
+
+body{
+  font-size:12px;
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.x-small{
+  font-size:50%;
+}
+
+.header-custom-color{
+  .gradient(top, @mainColorBkg, @mainColorBkg);
+  a{
+    color:@mainColorFg !important;
+    font-size:1.6em;
+    i{
+      font-size:1.2em;
+      padding-right:5px;
+      padding-right:5px;
+    }
+  }
+
+}
+
+.header-banner-container{
+  display:block;
+  height:360px;
+  background-color: #FFF;
+  background-image: url("../images/sampleBkg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-position: top;
+  padding:15px;
+  .section-header{
+    color:white;
+  }
+}
+
+.footer-custom-style{
+  .gradient(top, @footerColotBkg, @footerColotBkg);
+  color: @footerColotFg;height:30px;
+  font-size:1.1em;
+  border-top:2px solid #777;
+}
+
+.section-header{
+  font-size:2.5em;
+}
+.body .section-header{
+  color:#666;
+}
+
+.no-margin{
+  margin:0px !important;
+}
+.no-padding{
+  padding:0px !important;
+}
+
+input, textarea{
+  border-radius:6px;
+  border:1px solid #CCC;
+  padding:3px;
+  font-size:1.4em;
+  margin:4px;
+  color:@mainColorBkg;
+}
+textarea{
+  font-size:1.1em;
+}
+
+.phone-number-container{
+  .box-shadow(-4px, -4px, 9px, 0.5);
+  background-color: @mainColorBkg;
+  color:@mainColorFg;
+  margin-top:10px;
+  position:relative;
+  padding:15px;
+  right:-20px;
+  .phone-icon{
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    font-size: 4em;
+  }
+  .col:nth-of-type(1){
+    border-right:1px solid white;
+  }
+  .phone-number{
+    font-size:2em;
+    font-family: Georgia, Garamond, serif;
+    text-align:center;
+  }
+  .phone-number-name{
+    font-size:1.5em;
+    text-align:center;
+  }
+}
+
+.star-rating{
+  font-size:2em;
+  .fa{
+    &.on{
+      color: #ffbf1d;
+    }
+    &.off{
+      color: #666;
+    }
+  }
+}
+
+.testimonial{
+  margin-top:10px;
+  display:block;
+
+}
+credit{
+  display: block;
+  text-align: right;
+  color: @mainColorBkg;
+  border-top: 1px solid #DDD;
+  margin-top: 5px;
+  margin-bottom:10px;
+  padding-top: 5px;
+}
+.accent{
+  color:@accentColor;
+}
+
+.recommendBtn{
+  right: 54px;
+  position: absolute;
+  bottom: -10px
 }

@@ -1,11 +1,9 @@
 body{
-    padding-bottom:105px;
-    padding-top:60px;
-    background-color:darkred;
+    padding-bottom:30px;
+    padding-top:54px;
+    background-color:white;
 }
-.navbar-fixed-bottom{
-    height:100px;
-}
+
 .thumbnail{
     min-height:350px;
     padding:10px;

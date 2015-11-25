@@ -15,6 +15,7 @@ require.config({
         'angular-ui-router': '../components/angular-ui-router/release/angular-ui-router',
         'angular-mocks': '../components/angular-mocks/angular-mocks',
         'bootstrap-3.2.0':'../components/Bootstrap.3.2.0/js/bootstrap.min',
+        'spin':'../components/spinjs/spin.min',
 
 
         // Named References
@@ -24,7 +25,8 @@ require.config({
         'controllers-module': 'controllers/module',
         'directives-module': 'directives/module',
         'filters-module': 'filters/module',
-        'services-module': 'services/module'
+        'services-module': 'services/module',
+        'ngAlertModal':'modules/ngAlertModal'
 
 
     },

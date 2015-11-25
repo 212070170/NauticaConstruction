@@ -11,8 +11,9 @@ define([
     'services/main',
     'controllers/main',
     'routes',
-    'interceptors'
-], function (require, $, angular, ngResource, directives, filters, services, controllers, routes, interceptors) {
+    'interceptors',
+    'ngAlertModal'
+], function (require, $, angular, ngResource, directives, filters, services, controllers, routes, interceptors,alertmodal ) {
     'use strict';
 
     /**
@@ -27,7 +28,8 @@ define([
         'app.services',
         'app.filters',
         'app.routes',
-        'app.interceptors'
+        'app.interceptors',
+        'ngAlertModal'
     ]);
 
     myApp.run(['$location', '$rootScope', function($location, $rootScope) {
@@ -36,20 +38,23 @@ define([
     }]);
 
 
-    myApp.controller('MainCtrl',['$scope','$rootScope','Session_factory', function($scope,$rootScope,session){
+    myApp.controller('MainCtrl',['$scope','$rootScope','Session_factory','$timeout', function($scope,$rootScope,session,$timeout){
         //Global application object
         window.App = $rootScope.App = {
             version: '1.0',
-            name: 'Predix Seed',
+            name: 'Nautica Construction',
             session: {},
             tabs: [
-                {state: 'home', label: "Home"},
-                {state: 'about', label: "About"}
+                {state: 'photos', label: "photos", icon:"fa fa-camera"},
+                {state: 'about', label: "about", icon:"fa fa-lightbulb-o"},
+                {state: 'payments', label: "payments", icon:"fa fa-credit-card"}
             ]
         };
 
 
-
+        $timeout(function(){
+            $scope.stats = [1,2,3];
+        },2000);
         //Unbind all widgets from datasources and widgets when page changes
         $rootScope.$on('$routeChangeStart', function () {
             //vRuntime.binder.unbindAll();

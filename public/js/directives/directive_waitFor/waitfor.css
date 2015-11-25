@@ -1,0 +1,21 @@
+.waitfor .spinner{
+ position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  -webkit-transform: translate(-50%,-50%) !important;
+  -ms-transform: translate(-50%,-50%) !important;
+  transform: translate(-50%,-50%) !important;
+  margin:0px !important;
+}
+
+.waitfor .spinner .waitforlabel{
+    position:absolute !important;
+    left: 50% !important;
+    color: #999;    
+    font-weight:bold;
+    font-size:medium;
+  -webkit-transform: translate(-50%,-50%) !important;
+  -ms-transform: translate(-50%,-50%) !important;
+  transform: translate(-50%,100%) !important;
+
+}

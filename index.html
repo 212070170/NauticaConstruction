@@ -7,33 +7,28 @@
     <link rel="stylesheet" href="public/components/Bootstrap.3.2.0/css/bootstrap.css"/>
     <link rel="stylesheet" href="public/components/Bootstrap.3.2.0/css/bootstrap-theme.css"/>
     <link rel="stylesheet" href="public/components/font-awesome-4.1.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="public/js/directives/stats-directive.css"/>
+    <link rel="stylesheet" href="public/js/directives/directive_waitFor/waitfor.css"/>
+    <link rel="stylesheet" href="public/js/modules/angular-carousel/dist/angular-carousel.min.css"/>
 
     <link rel="stylesheet" href="public/css/custom.css"/>
     <link rel="stylesheet/less" href="public/less/custom.less"/>
     <script src="public/js/facebookLogin.js" type="application/javascript"></script>
+    <title>{{App.name}}</title>
 </head>
 <body>
 
     <div class="container">
         <div ui-view="headerView" class="col-sm-12 col-xs-12"></div>
-        <div ui-view="bodyView" class="col-sm-12 col-xs-12"></div>
+        <div ui-view="bodyView" class="col-sm-12 col-xs-12 body"></div>
     </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+<nav class="navbar  navbar-fixed-bottom footer-custom-style" role="navigation">
 <div class="container">
     <div id="technologies" class="pull-right">
-        <div
-                class="fb-like"
-                data-send="true"
-                data-width="450"
-                data-show-faces="true">
+        <div class="all-rights-rserved">
+            all rights reserved 2016
         </div>
-        <img  src="public/images/559px-JQuery_UI_Logo.svg.png" style="height:30px;" class/>
-        <img  src="public/images/AngularJS-large.png" style="height:30px;"/>
-        <img  src="public/images/bootstrap.png" style="height:30px;"/>
-        <img  src="public/images/css31.png" style="height:30px;"/>
-        <img  src="public/images/HTML5_Logo_512.png" style="height:30px;"/>
-        <img  src="public/images/less.png" style="height:30px;"/>
     </div>
 </div>
 </nav>

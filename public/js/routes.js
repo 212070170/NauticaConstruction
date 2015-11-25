@@ -29,6 +29,38 @@ define([ 'angular', 'controllers/main', 'angular-ui-router' ], function (angular
                       bodyView: {templateUrl: 'public/views/home.html', controller: 'HomeCtrl'}
 
                   }
+              })
+              .state('photos', {
+                  url: '/photos',
+                  views: {
+                      headerView: {templateUrl: 'public/views/header.html', controller: 'MainCtrl'},
+                      bodyView: {templateUrl: 'public/views/photos.html', controller: 'HomeCtrl'}
+
+                  }
+              })
+              .state('about', {
+                  url: '/about',
+                  views: {
+                      headerView: {templateUrl: 'public/views/header.html', controller: 'MainCtrl'},
+                      bodyView: {templateUrl: 'public/views/about.html', controller: 'HomeCtrl'}
+
+                  }
+              })
+              .state('payments', {
+                  url: '/payments',
+                  views: {
+                      headerView: {templateUrl: 'public/views/header.html', controller: 'MainCtrl'},
+                      bodyView: {templateUrl: 'public/views/payments.html', controller: 'HomeCtrl'}
+
+                  }
+              })
+              .state('testimonials', {
+                  url: '/testimonials',
+                  views: {
+                      headerView: {templateUrl: 'public/views/header.html', controller: 'MainCtrl'},
+                      bodyView: {templateUrl: 'public/views/testimonials.html', controller: 'HomeCtrl'}
+
+                  }
               }
           );
 

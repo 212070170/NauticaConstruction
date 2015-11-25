@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top header-custom-color" role="navigation">
     <div class="container container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -13,42 +13,85 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li ui-sref-active="active"><a  ui-sref="home"><i class="fa fa-file-text" ></i> About</a></li>
-                <li  ui-sref-active="active"><a ui-sref="tech"><i class="fa fa-gears" ></i> How we do it</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users" ></i> Documents <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
+                <li ng-repeat="tab in App.tabs"><a ui-sref="{{tab.state}}"><i class="fa {{tab.icon}}"></i></i> {{tab.label}}</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
+
     </div><!-- /.container-fluid -->
 </nav>
+
+<div class="header-banner-container container-fluid">
+    <div class="col-sm-6">
+        <div class="col-sm-6">
+            <div class="row">
+                <stats-directive main-title="customer" sub-title="satisfaction" value="94%" color="#CC2F7A" wait-for="{{stats.length > 0}}" class="col-xs-12"> </stats-directive>
+            </div>
+            <stats-directive main-title="yelp" sub-title="rating" class="col-xs-12" wait-for="{{stats.length > 0}}">
+                <div class="star-rating">
+                    <i class="fa fa-star on"></i>
+                    <i class="fa fa-star on"></i>
+                    <i class="fa fa-star on"></i>
+                    <i class="fa fa-star off"></i>
+                    <i class="fa fa-star off"></i>
+                </div>
+            </stats-directive>
+        </div>
+        <div class="col-sm-6">
+            <stats-directive main-title="completed" sub-title="jobs" value="253" color="#10468D" class="col-xs-12" wait-for="{{stats.length > 0}}"> </stats-directive>
+            <stats-directive main-title="current" sub-title="jobs" value="02" color="#FF6B00" class="col-xs-12" wait-for="{{stats.length > 0}}"> </stats-directive>
+        </div>
+    </div>
+
+
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="section contactus col-sm-6 pull-right">
+                <div class="section-header pull-right row">contact us</div>
+                <div class="section-content row pull-right">
+                    <div class="row">
+                        <input type="text" placeholder="name" class="col-xs-5"/>
+                        <input type="text" placeholder="phone" class="col-xs-6" style="width:47%"/>
+                    </div>
+                    <div class="row ">
+                        <input type="text" placeholder="email" class="col-xs-11"/>
+                    </div>
+                    <div class="row ">
+                        <textarea name="" id="" cols="30" rows="3" class="col-xs-11"></textarea>
+                    </div>
+                    <div class="row ">
+                        <button class="btn btn-success col-xs-3 col-xs-offset-8" id="sendContact">send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="phone-number-container col-xs-12">
+                <i class="fa fa-phone-square phone-icon"></i>
+                <div class="col-xs-6 col">
+                    <div class="row phone-number"> (631) 000-1234</div>
+                    <div class="row phone-number-name"> Dan Shea</div>
+                </div>
+                <div class="col-xs-6 col">
+                    <div class="row phone-number"> (631) 000-1234</div>
+                    <div class="row phone-number-name"> Dan Shea</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-modal
+        id = "contactUsConfModal"
+        width = "300px"
+        title = "Thank you!"
+        message = "Your message was delivered"
+        color-scheme="#10468d"
+        trigger="sendContact"
+        condition="true"
+        on-ok="doSomething"
+        on-cancel="doSomething"
+        on-close="doSomething"
+        on-open="doSomething"
+        >
+</ng-modal>

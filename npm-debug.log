@@ -1,0 +1,62 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'spinner' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.1
+4 verbose install initial load of /Users/fabioalmeida/Documents/Personal/WebProjects/NauticaConstruction/package.json
+5 verbose readDependencies loading dependencies from /Users/fabioalmeida/Documents/Personal/WebProjects/NauticaConstruction/package.json
+6 silly cache add args [ 'spinner', null ]
+7 verbose cache add spec spinner
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'spinner',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'spinner',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 silly addNamed spinner@*
+10 verbose addNamed "*" is a valid semver range for spinner
+11 silly addNameRange { name: 'spinner', range: '*', hasData: false }
+12 silly mapToRegistry name spinner
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/spinner
+16 verbose addNameRange registry:https://registry.npmjs.org/spinner not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/spinner
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 3:13:20 PM
+20 verbose request id a6624c3764566052
+21 http request GET https://registry.npmjs.org/spinner
+22 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=getaddrinfo ENOTFOUND proxy-src.research.ge.com proxy-src.research.ge.com:8080
+23 info attempt registry request try #2 at 3:13:30 PM
+24 http request GET https://registry.npmjs.org/spinner
+25 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=getaddrinfo ENOTFOUND proxy-src.research.ge.com proxy-src.research.ge.com:8080
+26 info attempt registry request try #3 at 3:14:30 PM
+27 http request GET https://registry.npmjs.org/spinner
+28 verbose stack Error: tunneling socket could not be established, cause=getaddrinfo ENOTFOUND proxy-src.research.ge.com proxy-src.research.ge.com:8080
+28 verbose stack     at ClientRequest.onError (/usr/local/lib/node_modules/npm/node_modules/request/node_modules/tunnel-agent/index.js:174:17)
+28 verbose stack     at ClientRequest.g (events.js:260:16)
+28 verbose stack     at emitOne (events.js:77:13)
+28 verbose stack     at ClientRequest.emit (events.js:169:7)
+28 verbose stack     at Socket.socketErrorListener (_http_client.js:259:9)
+28 verbose stack     at emitOne (events.js:77:13)
+28 verbose stack     at Socket.emit (events.js:169:7)
+28 verbose stack     at connectErrorNT (net.js:996:8)
+28 verbose stack     at doNTCallback2 (node.js:439:9)
+28 verbose stack     at process._tickCallback (node.js:353:17)
+29 verbose cwd /Users/fabioalmeida/Documents/Personal/WebProjects/NauticaConstruction
+30 error Darwin 14.5.0
+31 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "spinner"
+32 error node v4.2.1
+33 error npm  v2.14.7
+34 error code ECONNRESET
+35 error network tunneling socket could not be established, cause=getaddrinfo ENOTFOUND proxy-src.research.ge.com proxy-src.research.ge.com:8080
+35 error network This is most likely not a problem with npm itself
+35 error network and is related to network connectivity.
+35 error network In most cases you are behind a proxy or have bad network settings.
+35 error network
+35 error network If you are behind a proxy, please make sure that the
+35 error network 'proxy' config is set properly.  See: 'npm help config'
+36 verbose exit [ 1, true ]

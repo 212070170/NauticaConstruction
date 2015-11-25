@@ -1,1 +1,60 @@
-home
+<div class="col-sm-7">
+    <div class="row">
+        <div class="section-header"><i class="fa fa-comments"></i> Testimonials <a class="accent x-small"  ui-sref="testimonials"> | Write a testimonial</a></div>
+        <small class="testimonial">
+            "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+            There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+        </small>
+        <credit>
+            Fabio Almeida | 11/25/2015
+        </credit>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 no-margin no-padding">
+            <div class="section-header"><i class="fa fa-credit-card"></i> Make a payment</div>
+            <div class="  accent">
+                :: retrieve bill information
+            </div>
+            <div>
+                <input type="text" placeholder="Phone" class="col-xs-9"/>
+            </div>
+            <div>
+                <input type="text" placeholder="zip" class="col-xs-9"/>
+            </div>
+            <div>
+                <a class="btn btn-info col-xs-offset-6 col-xs-3" ui-sref="payments">continue</a>
+            </div>
+        </div>
+        <div class="col-sm-6 no-margin no-padding">
+            <div class="section-header"><i class="fa fa-envelope"></i> Recommend us</div>
+            <div>
+                <input type="text" placeholder="name" class="col-xs-9"/>
+            </div>
+            <div>
+                <input type="text" placeholder="email" class="col-xs-9"/>
+            </div>
+            <div>
+                <textarea   placeholder="message" class="col-xs-9"></textarea>
+                <button class="btn btn-info pull-right recommendBtn" id="sendRecommend"><i class="fa fa-send"></i></button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-5">
+    <div class="section-header"> <i class="fa fa-camera"></i> Photo gallery</div>
+</div>
+
+<ng-modal
+        id = "recommendConfModal"
+        width = "300px"
+        message = "Thank you for recommending our services"
+        color-scheme="#8D0A00"
+        btn-ok-color="#8D0A00"
+        trigger="sendRecommend"
+        on-ok="doSomething"
+        on-cancel="doSomething"
+        on-close="doSomething"
+        on-open="doSomething"
+        >
+</ng-modal>

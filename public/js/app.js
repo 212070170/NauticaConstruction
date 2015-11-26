@@ -12,8 +12,9 @@ define([
     'controllers/main',
     'routes',
     'interceptors',
-    'ngAlertModal'
-], function (require, $, angular, ngResource, directives, filters, services, controllers, routes, interceptors,alertmodal ) {
+    'ngAlertModal',
+    'inputMask'
+], function (require, $, angular, ngResource, directives, filters, services, controllers, routes, interceptors,alertmodal, inputMask ) {
     'use strict';
 
     /**
@@ -29,7 +30,9 @@ define([
         'app.filters',
         'app.routes',
         'app.interceptors',
-        'ngAlertModal'
+        'ngAlertModal',
+        'fa.input.mask'
+
     ]);
 
     myApp.run(['$location', '$rootScope', function($location, $rootScope) {
@@ -46,8 +49,8 @@ define([
             session: {},
             tabs: [
                 {state: 'photos', label: "photos", icon:"fa fa-camera"},
-                {state: 'about', label: "about", icon:"fa fa-lightbulb-o"},
-                {state: 'payments', label: "payments", icon:"fa fa-credit-card"}
+                {state: 'about', label: "about", icon:"fa fa-lightbulb-o"}
+//                {state: '.', label: "payments", icon:"fa fa-credit-card"}
             ]
         };
 

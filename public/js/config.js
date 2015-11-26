@@ -16,6 +16,7 @@ require.config({
         'angular-mocks': '../components/angular-mocks/angular-mocks',
         'bootstrap-3.2.0':'../components/Bootstrap.3.2.0/js/bootstrap.min',
         'spin':'../components/spinjs/spin.min',
+        'string-mask':'./modules/inputMask/node_modules/string-mask/src/string-mask',
 
 
         // Named References
@@ -26,7 +27,9 @@ require.config({
         'directives-module': 'directives/module',
         'filters-module': 'filters/module',
         'services-module': 'services/module',
-        'ngAlertModal':'modules/ngAlertModal'
+        'ngAlertModal':'modules/ngAlertModal',
+        'inputMask':'modules/inputMask/app'
+
 
 
     },

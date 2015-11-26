@@ -16,10 +16,10 @@
                 :: retrieve bill information
             </div>
             <div>
-                <input type="text" placeholder="Phone" class="col-xs-9"/>
+                <input type="text" placeholder="Phone" class="col-xs-9" ng-model="payment.phone" fa-input-mask-phone/>
             </div>
             <div>
-                <input type="text" placeholder="zip" class="col-xs-9"/>
+                <input type="text" placeholder="zip" class="col-xs-9" ng-model = "payment.zip" fa-input-mask-zip/>
             </div>
             <div>
                 <a class="btn btn-info col-xs-offset-6 col-xs-3" ui-sref="payments">continue</a>

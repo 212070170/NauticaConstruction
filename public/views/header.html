@@ -14,7 +14,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li ng-repeat="tab in App.tabs"><a ui-sref="{{tab.state}}"><i class="fa {{tab.icon}}"></i></i> {{tab.label}}</a></li>
+                <li ng-repeat="tab in App.tabs"><a  ui-sref="{{tab.state}}"><i class="fa {{tab.icon}}"></i></i> {{tab.label}}</a></li>
+                <li><a id="payments" ui-sref="."><i class="fa fa-credit-card"></i></i> payments</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
 
@@ -51,13 +52,13 @@
                 <div class="section-content row pull-right">
                     <div class="row">
                         <input type="text" placeholder="name" class="col-xs-5"/>
-                        <input type="text" placeholder="phone" class="col-xs-6" style="width:47%"/>
+                        <input type="text" placeholder="phone" class="col-xs-6" style="width:47%" ng-model="contact.phone" fa-input-mask-phone/>
                     </div>
                     <div class="row ">
                         <input type="text" placeholder="email" class="col-xs-11"/>
                     </div>
                     <div class="row ">
-                        <textarea name="" id="" cols="30" rows="3" class="col-xs-11"></textarea>
+                        <textarea name="" id="" cols="30" rows="3" class="col-xs-11" placeholder="message"></textarea>
                     </div>
                     <div class="row ">
                         <button class="btn btn-success col-xs-3 col-xs-offset-8" id="sendContact">send</button>
@@ -88,6 +89,80 @@
         message = "Your message was delivered"
         color-scheme="#10468d"
         trigger="sendContact"
+        condition="true"
+        on-ok="doSomething"
+        on-cancel="doSomething"
+        on-close="doSomething"
+        on-open="doSomething"
+        >
+</ng-modal>
+
+<ng-slide
+        from="left"
+        behavior="push"
+        trigger="payments"
+        id="payments_slide"
+        class="payment">
+    <div class="section-header"><i class="fa fa-credit-card"></i> Make a Payment</div>
+    <div id="retrieveBill" ng-hide="payment.data">
+        <input class="col-xs-12" type="text" fa-input-mask-phone placeholder="phone" ng-model="payment.phone"/>
+        <input class="col-xs-12" type="text" fa-input-mask-zip placeholder="zip" ng-model="payment.zip"/>
+        <button class="col-xs-4 col-xs-offset-8 btn btn-success" ng-click="payment.data = true">retrieve</button>
+    </div>
+    <div id="payBill" ng-show="payment.data">
+        <div class="billItem">
+            <input type="checkbox"/> US$ 10,000.00
+        </div>
+        <div class="billItem">
+            <input type="checkbox"/> US$ 10,000.00
+        </div>
+        <div class="billItem">
+            <input type="checkbox"/> US$ 10,000.00
+        </div>
+        <div class="billItem">
+            <input type="checkbox"/> US$ 10,000.00
+        </div>
+        <input class="col-xs-12" type="text" placeholder="name on card"/>
+        <input class="col-xs-12" type="text" placeholder="card number"/>
+        <input class="col-xs-12" type="text" placeholder="address on card"/>
+        <input class="col-xs-5" type="text" placeholder="city"/>
+        <input class="col-xs-6" type="text" placeholder="state"/>
+        <div class="totalPay text-right">
+            total:<b> US$ 15,000.000</b>
+        </div>
+        <input class="col-xs-5" type="text" placeholder="cvv"/>
+        <input class="col-xs-6" type="text" placeholder="exp" fa-input-mask-cc-exp ng-model="payment.exp"/>
+        <div class="button-group col-xs-12 paymentAction">
+            <button class="col-xs-4 pull-right btn btn-success" id="doPay">pay</button>
+            <button class="col-xs-4 pull-right btn btn-danger" >cancel</button>
+        </div>
+
+
+        <div class="footer">
+            <div class="col-xs-8 cc-logos no-padding">
+                <i class="fa fa-cc-amex"></i>
+                <i class="fa fa-cc-diners-club"></i>
+                <i class="fa fa-cc-discover"></i>
+                <i class="fa fa-cc-mastercard"></i>
+                <i class="fa fa-cc-visa"></i>
+                <i class="fa fa-cc-stripe"></i>
+            </div>
+            <div class="col-xs-4 no-padding cc-logos">
+                powered by
+                <i class="fa fa-cc-paypal new-line"></i>
+
+            </div>
+        </div>
+    </div>
+
+</ng-slide>
+
+<ng-modal
+        id = "paymentConfModal"
+        width = "300px"
+        title = "Thank you for your payment!"
+        color-scheme="#10468d"
+        trigger="doPay"
         condition="true"
         on-ok="doSomething"
         on-cancel="doSomething"

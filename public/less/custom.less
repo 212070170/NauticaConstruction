@@ -74,8 +74,24 @@ body{
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.new-line{
+  display:block;
+  clear:both;
+  position:relative;
+  width:100%;
+}
 .x-small{
   font-size:50%;
+}
+.panel.inverse {
+  border-width:3px;
+  .panel-heading, .panel-footer {
+    .gradient(top, transparent, transparent);
+    border: none;
+    font-size: 1.89em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 .header-custom-color{
@@ -101,7 +117,7 @@ body{
   background-repeat: no-repeat;
   overflow: hidden;
   background-position: top;
-  padding:15px;
+  padding:5px 15px;
   .section-header{
     color:white;
   }
@@ -116,6 +132,7 @@ body{
 
 .section-header{
   font-size:2.5em;
+  margin:10px 0px;
 }
 .body .section-header{
   color:#666;
@@ -202,4 +219,25 @@ credit{
   right: 54px;
   position: absolute;
   bottom: -10px
+}
+.testimonialsContainer{
+  height:180px;
+  overflow-y:auto !important;
+  padding:5px !important;
+}
+.payment{
+  .section-header{
+    font-size:1.5em;
+  }
+  .footer>div, .paymentAction, .totalPay{
+    padding-top:15px;
+    padding-bottom:15px;
+    display:block;
+  }
+}
+
+.cc-logos i{
+  font-size:3em;
+  color:#ccc;
+  text-align: center;
 }

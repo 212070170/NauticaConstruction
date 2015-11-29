@@ -13,7 +13,8 @@ define([
     'routes',
     'interceptors',
     'ngAlertModal',
-    'inputMask'
+    'inputMask',
+    'dataFactory'
 ], function (require, $, angular, ngResource, directives, filters, services, controllers, routes, interceptors,alertmodal, inputMask ) {
     'use strict';
 
@@ -31,7 +32,8 @@ define([
         'app.routes',
         'app.interceptors',
         'ngAlertModal',
-        'fa.input.mask'
+        'fa.input.mask',
+        'dataFactory'
 
     ]);
 
@@ -41,7 +43,7 @@ define([
     }]);
 
 
-    myApp.controller('MainCtrl',['$scope','$rootScope','Session_factory','$timeout', function($scope,$rootScope,session,$timeout){
+    myApp.controller('MainCtrl',['$scope','$log','$rootScope','Session_factory','$timeout',"ngModalService","$form",'dataLoader', function($scope,$log,$rootScope,session,$timeout,modalService,$form,dataLoader){
         //Global application object
         window.App = $rootScope.App = {
             version: '1.0',
@@ -55,18 +57,39 @@ define([
         };
 
 
-        $timeout(function(){
-            $scope.stats = [1,2,3];
-        },2000);
-        //Unbind all widgets from datasources and widgets when page changes
-        $rootScope.$on('$routeChangeStart', function () {
-            //vRuntime.binder.unbindAll();
-        });
 
-        $rootScope.logout = function (event) {
-            event.preventDefault();
-            location.replace('logout');
-        };
+        dataLoader.endpoint.add("info","http://www.eliteinsite.com/api/nautica/comment/?apiKey=localhost:63342");
+        dataLoader.endpoint.add("stats","http://www.eliteinsite.com/api/nautica/stats/?apiKey=localhost:63342");
+        dataLoader.endpoint.add("comment","http://www.eliteinsite.com/api/nautica/comment/?apiKey=eliteinsite.com");
+        dataLoader.endpoint.add("recommend","http://www.eliteinsite.com/api/nautica/comment/?apiKey=localhost:63342");
+        dataLoader.endpoint.add("payment","http://www.eliteinsite.com/api/nautica/comment/?apiKey=localhost:63342");
+        dataLoader.endpoint.add("testimonial","http://www.eliteinsite.com/api/nautica/comment/?apiKey=localhost:63342");
+
+        $scope.getStats = function(){
+            dataLoader.get("stats").success(function(data){
+                $scope.stats = data;
+            }).error(function(){
+                $log.error("Could not get stats data");
+            })
+        }();
+
+        $scope.sendContactMessage = function(contact){
+            dataLoader.post("comment",contact).success(function(){
+                modalService.create({
+                    id:"contactModal",
+                    width:"300px",
+                    title:"Thank you!",
+                    message:"We will be contacting you shortly"
+                }).open();
+                $form.reset.call($scope.contactform);
+            }).error(function(){
+
+            })
+
+        }
+
+
+
 
 
 
@@ -74,10 +97,6 @@ define([
     //Set on window for debugging
     window.myApp = myApp;
 
-
-    require(['jquery','bootstrap-3.2.0'],function(){
-        $('.dropdown-toggle').dropdown();
-    });
 
     //Return the application  object
     return myApp;

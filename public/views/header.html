@@ -26,9 +26,9 @@
     <div class="col-sm-6">
         <div class="col-sm-6">
             <div class="row">
-                <stats-directive main-title="customer" sub-title="satisfaction" value="94%" color="#CC2F7A" wait-for="{{stats.length > 0}}" class="col-xs-12"> </stats-directive>
+                <stats-directive main-title="{{stats[0].title}}" sub-title="{{stats[0].subTitle}}" value="{{stats[0].value}}%" color="{{stats[0].color}}" wait-for="{{stats.length > 0}}" class="col-xs-12"> </stats-directive>
             </div>
-            <stats-directive main-title="yelp" sub-title="rating" class="col-xs-12" wait-for="{{stats.length > 0}}">
+            <stats-directive main-title="{{stats[2].title}}" sub-title="{{stats[2].subTitle}}"  wait-for="{{stats.length > 0}}" class="col-xs-12">
                 <div class="star-rating">
                     <i class="fa fa-star on"></i>
                     <i class="fa fa-star on"></i>
@@ -39,32 +39,32 @@
             </stats-directive>
         </div>
         <div class="col-sm-6">
-            <stats-directive main-title="completed" sub-title="jobs" value="253" color="#10468D" class="col-xs-12" wait-for="{{stats.length > 0}}"> </stats-directive>
-            <stats-directive main-title="current" sub-title="jobs" value="02" color="#FF6B00" class="col-xs-12" wait-for="{{stats.length > 0}}"> </stats-directive>
+            <stats-directive main-title="{{stats[1].title}}" sub-title="{{stats[1].subTitle}}" value="{{stats[1].value}}" color="{{stats[1].color}}" wait-for="{{stats.length > 0}}" class="col-xs-12"> </stats-directive>
+            <stats-directive main-title="{{stats[3].title}}" sub-title="{{stats[3].subTitle}}" value="{{stats[3].value}}" color="{{stats[3].color}}" wait-for="{{stats.length > 0}}" class="col-xs-12"> </stats-directive>
         </div>
     </div>
 
 
     <div class="col-sm-6">
         <div class="row">
-            <div class="section contactus col-sm-6 pull-right">
+            <form class="section contactus col-sm-6 pull-right" name="contactform" id="contactform" ng-submit="sendContactMessage(contact)">
                 <div class="section-header pull-right row">contact us</div>
                 <div class="section-content row pull-right">
                     <div class="row">
-                        <input type="text" placeholder="name" class="col-xs-5"/>
-                        <input type="text" placeholder="phone" class="col-xs-6" style="width:47%" ng-model="contact.phone" fa-input-mask-phone/>
+                        <input type="text" ng-model="contact.name" placeholder="name" class="col-xs-5" required/>
+                        <input type="text"  ng-model="contact.phone" placeholder="phone" class="col-xs-6" style="width:47%" fa-input-mask-phone required/>
                     </div>
                     <div class="row ">
-                        <input type="text" placeholder="email" class="col-xs-11"/>
+                        <input type="text"  ng-model="contact.email"  placeholder="email" class="col-xs-11" required/>
                     </div>
                     <div class="row ">
-                        <textarea name="" id="" cols="30" rows="3" class="col-xs-11" placeholder="message"></textarea>
+                        <textarea name=""  ng-model="contact.message"  id="" cols="30" rows="3" class="col-xs-11" placeholder="message" required></textarea>
                     </div>
                     <div class="row ">
-                        <button class="btn btn-success col-xs-3 col-xs-offset-8" id="sendContact">send</button>
+                        <input type="submit" value="send" class="btn btn-success col-xs-3 col-xs-offset-8" id="sendContact"/>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
         <div class="row">
             <div class="phone-number-container col-xs-12">
@@ -82,19 +82,7 @@
     </div>
 </div>
 
-<ng-modal
-        id = "contactUsConfModal"
-        width = "300px"
-        title = "Thank you!"
-        message = "Your message was delivered"
-        color-scheme="#10468d"
-        trigger="sendContact"
-        condition="true"
-        on-ok="doSomething"
-        on-cancel="doSomething"
-        on-close="doSomething"
-        on-open="doSomething"
-        >
+
 </ng-modal>
 
 <ng-slide

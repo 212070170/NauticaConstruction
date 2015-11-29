@@ -17,6 +17,8 @@ require.config({
         'bootstrap-3.2.0':'../components/Bootstrap.3.2.0/js/bootstrap.min',
         'spin':'../components/spinjs/spin.min',
         'string-mask':'./modules/inputMask/node_modules/string-mask/src/string-mask',
+        'dataFactory':'./modules/dataLoader/dataLoad',
+        'underscore':'../components/underscore-amd/index',
 
 
         // Named References

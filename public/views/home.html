@@ -26,18 +26,20 @@
             </div>
         </div>
         <div class="col-sm-6 no-margin no-padding">
-            <div class="section-header"><i class="fa fa-envelope"></i> Recommend us</div>
-            <div>
-                <input type="text" placeholder="name" class="col-xs-9"/>
-            </div>
-            <div>
-                <input type="text" placeholder="email" class="col-xs-9"/>
-            </div>
-            <div>
-                <textarea   placeholder="message" class="col-xs-9"></textarea>
-                <button class="btn btn-info pull-right recommendBtn" id="sendRecommend"><i class="fa fa-send"></i></button>
+            <form ng-submit="sendRecommendUs(recommend)" name="recommendus" >
+                <div class="section-header"><i class="fa fa-envelope"></i> Recommend us</div>
+                <div>
+                    <input type="text" placeholder="name" class="col-xs-9" required ng-model="recommend.name"/>
+                </div>
+                <div>
+                    <input type="email" placeholder="email" class="col-xs-9" required ng-model="recommend.email"/>
+                </div>
+                <div>
+                    <textarea   placeholder="message" class="col-xs-9" required ng-model="recommend.message"></textarea>
+                    <input class="btn btn-info pull-right recommendBtn" id="sendRecommend" type="submit" value="Send"/>
 
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -45,16 +47,3 @@
     <div class="section-header"> <i class="fa fa-camera"></i> Photo gallery</div>
 </div>
 
-<ng-modal
-        id = "recommendConfModal"
-        width = "300px"
-        message = "Thank you for recommending our services"
-        color-scheme="#8D0A00"
-        btn-ok-color="#8D0A00"
-        trigger="sendRecommend"
-        on-ok="doSomething"
-        on-cancel="doSomething"
-        on-close="doSomething"
-        on-open="doSomething"
-        >
-</ng-modal>

@@ -1,17 +1,18 @@
 <div class="col-sm-7">
     <div class="row">
         <div class="section-header"><i class="fa fa-comments"></i> Testimonials <a class="accent x-small"  ui-sref="testimonials"> | Write a testimonial</a></div>
-        <small class="testimonial">
-            "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-            There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
-        </small>
-        <credit>
-            Fabio Almeida | 11/25/2015
-        </credit>
+        <div  wait-for="{{testimonials.length > 0}}">
+            <small class="testimonial">
+                "{{randomTest.testimonial}}"
+            </small>
+            <credit>
+                {{randomTest.name}} | {{randomTest.date}}
+            </credit>
+        </div>
     </div>
     <div class="row">
-        <div class="col-sm-6 no-margin no-padding">
-            <div class="section-header"><i class="fa fa-credit-card"></i> Make a payment</div>
+        <div class="col-sm-4 no-margin no-padding">
+            <div class="section-header"><i class="fa fa-credit-card"></i> Payment</div>
             <div class="  accent">
                 :: retrieve bill information
             </div>
@@ -22,17 +23,19 @@
                 <input type="text" placeholder="zip" class="col-xs-9" ng-model = "payment.zip" fa-input-mask-zip/>
             </div>
             <div>
-                <a class="btn btn-info col-xs-offset-6 col-xs-3" ui-sref="payments">continue</a>
+                <a class="btn btn-info col-xs-offset-4 col-xs-5" ui-sref="payments">continue</a>
             </div>
         </div>
-        <div class="col-sm-6 no-margin no-padding">
+        <div class="col-sm-8 no-margin no-padding">
             <form ng-submit="sendRecommendUs(recommend)" name="recommendus" >
                 <div class="section-header"><i class="fa fa-envelope"></i> Recommend us</div>
                 <div>
-                    <input type="text" placeholder="name" class="col-xs-9" required ng-model="recommend.name"/>
+                    <input type="text" placeholder="Your Name" class="col-xs-5" required ng-model="recommend.yourName"/>
+                    <input type="email" placeholder="your Email" class="col-xs-5" required ng-model="recommend.yourEmail"/>
                 </div>
                 <div>
-                    <input type="email" placeholder="email" class="col-xs-9" required ng-model="recommend.email"/>
+                    <input type="text" placeholder="Friend's Name" class="col-xs-5" required ng-model="recommend.friendsName"/>
+                    <input type="email" placeholder="Friend's Email" class="col-xs-5" required ng-model="recommend.friendsEmail"/>
                 </div>
                 <div>
                     <textarea   placeholder="message" class="col-xs-9" required ng-model="recommend.message"></textarea>

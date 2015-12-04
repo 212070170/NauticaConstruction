@@ -2,35 +2,28 @@
     <i class="fa fa-comments"></i>
     Testimonials
 </div>
-<form class="col-xs-8" ng-submit="sendTestimonial(testimonial)" name="frmTestimonial">
-    <div class="panel panel-info inverse col-sm-5  no-padding">
-        <div class="panel-heading">Personal Info</div>
-        <div class="panel-body">
+<form class="col-xs-6" ng-submit="sendTestimonial(testimonial)" name="frmTestimonial">
+        <div class="col-sm-6">
             <input type="text" placeholder="name" class="col-xs-11" ng-model="testimonial.name" required/>
             <input type="text" placeholder="phone" class="col-xs-11" ng-model="testimonial.phone" fa-input-mask-phone required/>
             <input type="email" placeholder="email" class="col-xs-11" ng-model="testimonial.email" required/>
         </div>
-    </div>
-    <div class="panel panel-success inverse col-sm-6 col-sm-offset-1 no-padding">
-        <div class="panel-heading">Testimonial</div>
-        <div class="panel-body">
-            <textarea name="" id="" cols="30" rows="3" placeholder="testimonial" class="col-xs-11" ng-model="testimonial.message" required></textarea>
+
+        <div class="col-sm-6">
+            <textarea name="" id="" cols="30" rows="6" placeholder="testimonial" class="col-xs-11" ng-model="testimonial.message" required></textarea>
             <input type="submit" class="btn btn-success btn-small pull-right" id="doSendtestimonial"  value="Done"/>
 
         </div>
-        <div class="panel-footer">
-        </div>
-    </div>
+
 </form>
-<div class="col-xs-4">
+<div class="col-xs-6" wait-for="{{testimonials.length > 0}}">
     <div class="col-xs-12 panel panel-default inverse col-sm-12  testimonialsContainer">
-        <testimonial ng-repeat="i in [1,2,3,4,5,6,7,8,9]">
+        <testimonial ng-repeat="test in testimonials track by $index">
             <small class="testimonial">
-                "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-                There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+                "{{test.testimonial}}"
             </small>
             <credit>
-                Fabio Almeida | 11/25/2015
+                {{test.name}} | {{test.date}}
             </credit>
         </testimonial>
     </div>

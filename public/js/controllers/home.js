@@ -13,7 +13,9 @@ define(['angular',
                 modalService.create({
                     id:"recommendModal",
                     width:"300px",
-                    title:"Thank you for recommending our services!"
+                    title:"Thank you for recommending our services!",
+                    colorScheme:"#6DA700",
+                    btnOkColor:"#6DA700"
                 }).open();
                 $form.reset.call($scope.recommendus);
             }).error(function(){
@@ -27,19 +29,27 @@ define(['angular',
                         width:"300px",
                         title:"Thank you!",
                         message:"Your testimonial is very important to us",
-                        colorscheme:"#8D0A00",
-                        btnOkColor:"#8D0A00"
+                        colorScheme:"#6DA700",
+                        btnOkColor:"#6DA700"
                     }).open();
+                    $scope.getTestimonials();
                     $form.reset.call($scope.frmTestimonial);
                 }).error(function(){
 
                 })
-
-
-
-
         }
-
+        $scope.getTestimonials = function(){
+            dataLoader.get("getTestimonial").success(function(data){
+                $scope.testimonials = data;
+                $scope.randomTest = $scope.getRandomTest();
+            }).error(function(){
+                $log.error("Could not get testimonials data");
+            })
+        }();
+        $scope.getRandomTest = function(){
+            var rand =  Math.floor(Math.random() * $scope.testimonials.length  ) + 0;
+            return $scope.testimonials[rand];
+        };
 
     }]);
 });

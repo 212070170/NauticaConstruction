@@ -61,9 +61,10 @@ define([
         dataLoader.endpoint.add("info","http://www.eliteinsite.com/api/nautica/comment/?apiKey=localhost:63342");
         dataLoader.endpoint.add("stats","http://www.eliteinsite.com/api/nautica/stats/?apiKey=localhost:63342");
         dataLoader.endpoint.add("comment","http://www.eliteinsite.com/api/nautica/comment/?apiKey=eliteinsite.com");
-        dataLoader.endpoint.add("recommend","http://www.eliteinsite.com/api/nautica/comment/?apiKey=localhost:63342");
+        dataLoader.endpoint.add("recommend","http://www.eliteinsite.com/api/nautica/recommend/?apiKey=localhost:63342");
         dataLoader.endpoint.add("payment","http://www.eliteinsite.com/api/nautica/comment/?apiKey=localhost:63342");
-        dataLoader.endpoint.add("testimonial","http://www.eliteinsite.com/api/nautica/comment/?apiKey=localhost:63342");
+        dataLoader.endpoint.add("testimonial","http://www.eliteinsite.com/api/nautica/testimonial/?apiKey=localhost:63342");
+        dataLoader.endpoint.add("getTestimonial","http://www.eliteinsite.com/api/nautica/getTestimonial/?apiKey=localhost:63342");
 
         $scope.getStats = function(){
             dataLoader.get("stats").success(function(data){
@@ -79,7 +80,9 @@ define([
                     id:"contactModal",
                     width:"300px",
                     title:"Thank you!",
-                    message:"We will be contacting you shortly"
+                    message:"We will be contacting you shortly",
+                    colorScheme:"#6DA700",
+                    btnOkColor:"#6DA700"
                 }).open();
                 $form.reset.call($scope.contactform);
             }).error(function(){

@@ -92,24 +92,22 @@
         id="payments_slide"
         class="payment">
     <div class="section-header"><i class="fa fa-credit-card"></i> Make a Payment</div>
-    <div id="retrieveBill" ng-hide="payment.data">
+    <div id="retrieveBill" ng-hide="session.data.payments">
         <input class="col-xs-12" type="text" fa-input-mask-phone placeholder="phone" ng-model="payment.phone"/>
         <input class="col-xs-12" type="text" fa-input-mask-zip placeholder="zip" ng-model="payment.zip"/>
         <button class="col-xs-4 col-xs-offset-8 btn btn-success" ng-click="payment.data = true">retrieve</button>
     </div>
-    <div id="payBill" ng-show="payment.data">
-        <div class="billItem">
-            <input type="checkbox"/> US$ 10,000.00
+    <div id="payBill" ng-show="session.data.payments">
+        <div class="billItem" ng-repeat="item in session.data.payments.payments">
+            <div class="col-sm-2 squaredThree">
+                <input type="checkbox" id="pmtCheck{{$index}}"/>
+                <label for="pmtCheck{{$index}}"></label>
+            </div>
+            <div class="col-sm-10">
+                US$ {{item.amount}} <br> {{item.exp_date}}
+            </div>
         </div>
-        <div class="billItem">
-            <input type="checkbox"/> US$ 10,000.00
-        </div>
-        <div class="billItem">
-            <input type="checkbox"/> US$ 10,000.00
-        </div>
-        <div class="billItem">
-            <input type="checkbox"/> US$ 10,000.00
-        </div>
+
         <input class="col-xs-12" type="text" placeholder="name on card"/>
         <input class="col-xs-12" type="text" placeholder="card number"/>
         <input class="col-xs-12" type="text" placeholder="address on card"/>

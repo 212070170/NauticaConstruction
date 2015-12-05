@@ -12,19 +12,21 @@
     </div>
     <div class="row">
         <div class="col-sm-4 no-margin no-padding">
-            <div class="section-header"><i class="fa fa-credit-card"></i> Payment</div>
-            <div class="  accent">
-                :: retrieve bill information
-            </div>
-            <div>
-                <input type="text" placeholder="Phone" class="col-xs-9" ng-model="payment.phone" fa-input-mask-phone/>
-            </div>
-            <div>
-                <input type="text" placeholder="zip" class="col-xs-9" ng-model = "payment.zip" fa-input-mask-zip/>
-            </div>
-            <div>
-                <a class="btn btn-info col-xs-offset-4 col-xs-5" ui-sref="payments">continue</a>
-            </div>
+            <form ng-submit="getPayments(payment)" name="getPaymentsFrm">
+                <div class="section-header"><i class="fa fa-credit-card"></i> Payment</div>
+                <div class="  accent">
+                    :: retrieve bill information
+                </div>
+                <div>
+                    <input type="text" placeholder="Phone" class="col-xs-9" ng-model="payment.phone" fa-input-mask-phone required/>
+                </div>
+                <div>
+                    <input type="email" placeholder="email" class="col-xs-9" ng-model = "payment.email" required/>
+                </div>
+                <div>
+                    <input type="submit" value="continue" class="btn btn-info col-xs-offset-4 col-xs-5"/>
+                </div>
+            </form>
         </div>
         <div class="col-sm-8 no-margin no-padding">
             <form ng-submit="sendRecommendUs(recommend)" name="recommendus" >

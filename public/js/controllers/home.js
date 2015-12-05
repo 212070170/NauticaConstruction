@@ -7,7 +7,21 @@ define(['angular',
 ], function(angular, controllers) {
 
     // Controller definition
-    controllers.controller("HomeCtrl", ["$scope", "$rootScope","ngModalService","$form",'dataLoader', function($scope, $rootScope,modalService,$form,dataLoader) {
+    controllers.controller("HomeCtrl", ["$scope", "$rootScope","ngModalService","$form",'dataLoader','$Session', function($scope, $rootScope,modalService,$form,dataLoader,$session) {
+        // Set up session variables to share data between controllers
+        var sess = $scope.session = $session;
+
+        // Retrieves payment data from database
+        $scope.getPayments = function(payment){
+            dataLoader.get("payment",payment).success(function(data){
+                sess.set('payments',data);
+                console.log("SESS: ",sess);
+                $("#payments").click();
+                $form.reset.call($scope.getPaymentsFrm);
+            }).error(function(){
+
+            })
+        }
         $scope.sendRecommendUs = function(recommend){
             dataLoader.post("recommend",recommend).success(function(){
                 modalService.create({

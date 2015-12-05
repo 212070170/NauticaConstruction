@@ -43,7 +43,10 @@ define([
     }]);
 
 
-    myApp.controller('MainCtrl',['$scope','$log','$rootScope','Session_factory','$timeout',"ngModalService","$form",'dataLoader', function($scope,$log,$rootScope,session,$timeout,modalService,$form,dataLoader){
+    myApp.controller('MainCtrl',['$scope','$log','$rootScope','Session_factory','$timeout',"ngModalService","$form",'dataLoader','$Session', function($scope,$log,$rootScope,session,$timeout,modalService,$form,dataLoader,$session){
+        // Set up session variables to share data between controllers
+        var sess = $scope.session = $session;
+
         //Global application object
         window.App = $rootScope.App = {
             version: '1.0',
@@ -62,7 +65,7 @@ define([
         dataLoader.endpoint.add("stats","http://www.eliteinsite.com/api/nautica/stats/?apiKey=localhost:63342");
         dataLoader.endpoint.add("comment","http://www.eliteinsite.com/api/nautica/comment/?apiKey=eliteinsite.com");
         dataLoader.endpoint.add("recommend","http://www.eliteinsite.com/api/nautica/recommend/?apiKey=localhost:63342");
-        dataLoader.endpoint.add("payment","http://www.eliteinsite.com/api/nautica/comment/?apiKey=localhost:63342");
+        dataLoader.endpoint.add("payment","http://www.eliteinsite.com/api/nautica/getPayments/?apiKey=localhost:63342&:email&:phone");
         dataLoader.endpoint.add("testimonial","http://www.eliteinsite.com/api/nautica/testimonial/?apiKey=localhost:63342");
         dataLoader.endpoint.add("getTestimonial","http://www.eliteinsite.com/api/nautica/getTestimonial/?apiKey=localhost:63342");
 
@@ -90,6 +93,8 @@ define([
             })
 
         }
+
+
 
 
 

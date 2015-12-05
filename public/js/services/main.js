@@ -1,7 +1,8 @@
 define([
     'angular',
     'services-module',
-    './session-factory'
+    './session-factory',
+    './session'
 ],function(){
 
 })
